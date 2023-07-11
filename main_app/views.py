@@ -1,3 +1,4 @@
+from typing import Any, Dict
 from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import render
@@ -20,3 +21,12 @@ class Listing(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+class ListingList(TemplateView):
+    template_name = "listing_list.html"
+
+    def get_context_data(self, **kwargs: Any):
+        context = super().get_context_data(**kwargs)
+        context["listings"] = Listing
+        return context
