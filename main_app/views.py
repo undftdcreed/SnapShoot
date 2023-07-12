@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from .models import Listing
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic import DetailView
+from django.urls import reverse
 # Create your views here.
 
 class Home(TemplateView):
@@ -37,7 +38,9 @@ class ListingCreate(CreateView):
     model= Listing
     fields = {'name', 'img', 'description', 'price'}
     template_name = "listing_create.html"
-    success_url="/listings/"
+    
+    def get_success_url(self):
+        return reverse('listing_deatil', kwargs={'pk': self.object.pk})
 
 
 class ListingDetail(DetailView):
@@ -49,4 +52,6 @@ class ListingUpdate(UpdateView):
     model=Listing
     fields =['name', 'img', 'description', 'price']
     template_name = "lisiting_update.html"
-    success_url = "/listings/"
+
+    def get_success_url(self):
+        return reverse('listing_deatil', kwargs={'pk': self.object.pk})
