@@ -21,5 +21,9 @@ class ListingList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["listings"] = Listing.objects.all()
+        name = self.request.GET.get("title")
+        if name != None:
+            context["listings"] = Listing.objects.filter(name__icontains=name)
+        else:
+            context["listings"] = Listing.objects.all()
         return context
