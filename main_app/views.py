@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.http import HttpResponse
 from .models import Listing
-
+from django.views.generic.edit import CreateView
 # Create your views here.
 
 class Home(TemplateView):
@@ -31,8 +31,9 @@ class ListingList(TemplateView):
         return context
     
 
-    class ListingCreate(CreateView):
-        model= Listing
-        fields = {'name', 'img', 'description', 'price'}
-        template_name = "listing_create.html"
-        success_url="/listings/"
+    
+class ListingCreate(CreateView):
+    model= Listing
+    fields = {'name', 'img', 'description', 'price'}
+    template_name = "listing_create.html"
+    success_url="/listings/"
