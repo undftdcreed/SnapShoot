@@ -24,6 +24,8 @@ class ListingList(TemplateView):
         name = self.request.GET.get("title")
         if name != None:
             context["listings"] = Listing.objects.filter(name__icontains=name)
+            context["header"] = f"searching for {name}"
         else:
             context["listings"] = Listing.objects.all()
+            context["header"] = "Hot Locations"
         return context
