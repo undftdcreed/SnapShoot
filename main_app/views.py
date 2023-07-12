@@ -29,3 +29,10 @@ class ListingList(TemplateView):
             context["listings"] = Listing.objects.all()
             context["header"] = "Hot Locations"
         return context
+    
+
+    class ListingCreate(CreateView):
+        model= Listing
+        fields = {'name', 'img', 'description', 'price'}
+        template_name = "listing_create.html"
+        success_url="/listings/"
