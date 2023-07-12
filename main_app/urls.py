@@ -6,4 +6,6 @@ urlpatterns = [
     path('about/', views.About.as_view(), name="about"),
     path('listings/', views.ListingList.as_view(), name="listing_list"),
     path('listings/new/', views.ListingCreate.as_view(), name="listing_create"),
+    path('listings/<int:pk>/', views.ListingDetail.as_view(), name="listing_detail"),
+    
 ]

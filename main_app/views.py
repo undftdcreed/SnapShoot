@@ -6,6 +6,7 @@ from django.views.generic.base import TemplateView
 from django.http import HttpResponse
 from .models import Listing
 from django.views.generic.edit import CreateView
+from django.views.generic import DetailView
 # Create your views here.
 
 class Home(TemplateView):
@@ -37,3 +38,8 @@ class ListingCreate(CreateView):
     fields = {'name', 'img', 'description', 'price'}
     template_name = "listing_create.html"
     success_url="/listings/"
+
+
+class ListingDetail(DetailView):
+    model=Listing
+    template_name = "listing_detail.html"
