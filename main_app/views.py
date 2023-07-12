@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.http import HttpResponse
 from .models import Listing
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.urls import reverse
 # Create your views here.
@@ -38,7 +38,7 @@ class ListingCreate(CreateView):
     model= Listing
     fields = {'name', 'img', 'description', 'price'}
     template_name = "listing_create.html"
-    
+
     def get_success_url(self):
         return reverse('listing_deatil', kwargs={'pk': self.object.pk})
 
@@ -55,3 +55,9 @@ class ListingUpdate(UpdateView):
 
     def get_success_url(self):
         return reverse('listing_deatil', kwargs={'pk': self.object.pk})
+    
+class ListingDelete(DeleteView):
+    model = Listing
+    template_name = "listing_delete_confirmation.html"
+    success_url = "/listing/"
+    
