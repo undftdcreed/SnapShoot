@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% comment %} for head title tags and helping us with SEO {% endcomment %}
+{% block title %}Listing{% endblock  %}
+
+{% block content %}
+
+<h1 class="title pt-5">Hot Locations</h1>
+<div class="gallery">
+  {% for listing in Listing %}
+  <a href="">
+    <div class="card">
+      <div class="card-img">
+        <figure class="image is-square">
+          <img src="{{listing.img}}" alt="{{listing.title}}" />
+        </figure>
+      </div>
+      <div class="card-header">
+        <p class="card-header-title">{{listing.title}}</p>
+      </div>
+    </div>
+  </a>
+	{% empty %}
+  <article class="message">
+    <div class="message-header">
+      <p>No Listings Available</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}
