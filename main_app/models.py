@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+
 
 # Create your models here.
 class Listing(models.Model):
@@ -14,3 +17,14 @@ class Listing(models.Model):
     class Meta:
         ordering =['name']
 
+
+class Booking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    start_datetime = models.DateTimeField()
+    end_datetime = models.DateTimeField()
+    is_confirmed = models.BooleanField(default=False)
+
+    # Additional fields specific to your booking requirements
+
+    def __str__(self):
+        return f"{self.user.username}'s Booking for {self.service.name}"
