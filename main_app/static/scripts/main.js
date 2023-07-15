@@ -5,13 +5,15 @@ $(".navbar-burger").click(function () {
   });
   
 
-  // Get the theme switcher input elements
+ // Get the theme switcher input elements
 const themeInputs = document.querySelectorAll('input[name="themes"]');
 
 // Handle theme change
 themeInputs.forEach((input) => {
-  input.addEventListener('change', (e) => {
-    const selectedTheme = e.target.id;
-    document.body.className = selectedTheme + '-theme';
+  input.addEventListener('change', () => {
+    if (input.checked) {
+      const selectedTheme = input.id;
+      document.documentElement.className = selectedTheme + '-theme';
+    }
   });
 });
