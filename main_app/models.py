@@ -13,3 +13,4 @@ class Listing(models.Model):
     
     class Meta:
         ordering =['name']
+
