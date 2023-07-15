@@ -10,7 +10,7 @@ class Listing(models.Model):
     img = models.CharField(max_length=250, default='default.jpg')
     description = models.TextField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
-    #owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     def __str__(self):
         return self.name
     
