@@ -49,7 +49,40 @@ body {
   transform: translatex(-110%);
   bottom: 3px;
   border-radius: 6px;
-  
+  transition: 0.15s ease, transform 0.25s ease-out;
+  background-color: var(--c-bg-button);
+  box-shadow: var(--slider-shadow);
+}
+.theme-switcher input {
+  display: none;
+}
+
+.theme-switcher input:nth-of-type(1):checked ~ .slider{
+  transform: translate(0);
+}
+
+.theme-switcher input:nth-of-type(2):checked ~ .slider{
+  transform: translate(100%);
+}
+
+.theme-switcher input:nth-of-type(3):checked ~ .slider{
+  transform: translate(200%);
+}
+
+.theme-switcher label{
+  position: relative;
+  z-index: 2;
+  width: calc(100% / 3);
+  color: var(--c-text-secondary);
+}
+
+.theme-switcher label span{
+  padding: 8px 0;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
 }
 
 h1,
