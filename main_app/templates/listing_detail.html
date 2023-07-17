@@ -31,16 +31,6 @@
             <i class="fas fa-trash-alt"></i>
         </span>
     </a>
-    <form method="POST" action="{% url 'booking_create' %}">
-        {% csrf_token %}
-        <h2>{{ listing.name }}</h2>
-        <p>{{ listing.description }}</p>
-        <label for="start_datetime">Start Date and Time:</label>
-        <input type="datetime-local" id="start_datetime" name="start_datetime">
-      
-        <label for="end_datetime">End Date and Time:</label>
-        <input type="datetime-local" id="end_datetime" name="end_datetime">
-        <button type="submit">Book Now</button>
-      </form>
+   
       
 {% endblock %}
