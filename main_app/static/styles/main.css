@@ -187,3 +187,78 @@ footer {
   padding: 20px;
   text-align: center;
 }
+
+.detail__img {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.detail__img img {
+  max-width: 500px;
+  height: auto;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  color: #1E88E5;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.detail__about {
+  margin-top: 30px;
+}
+
+.detail__about h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.detail__about p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.buttons a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.buttons a .icon {
+  margin-left: 5px;
+}
+
+.buttons a.is-info {
+  background-color: #1E88E5;
+}
+
+.buttons a.is-info:hover {
+  background-color: #0F7AE5;
+}
+
+.buttons a.is-danger {
+  background-color: #E53935;
+}
+
+.buttons a.is-danger:hover {
+  background-color: #D32F2F;
+}
