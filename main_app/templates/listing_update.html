@@ -2,7 +2,7 @@
 {% block content %}
 <h1 class="pt-3">Update {{listing.name}}</h1>
 
-<form action="{% url 'listing_update' listing.id %}" method="post">
+<form action="{% url 'listing_update' listing.pk %}" method="post">
   {% csrf_token %} {{form.as_p}}
 	<input type="submit" value="Submit" />
 </form>
