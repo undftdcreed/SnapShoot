@@ -55,6 +55,7 @@ class ListingCreate(CreateView):
 class ListingDetail(DetailView):
     model=Listing
     template_name = "listing_detail.html"
+    
 
 
 class ListingUpdate(UpdateView):
