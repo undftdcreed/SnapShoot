@@ -12,32 +12,65 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <title>SnapShoot - {% block title %}{% endblock %}</title> 
     </head>
-    <nav class="navbar is-black" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">SnapShoot</a>
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
+    <body >
+        <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">SnapShoot</a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="navbar-menu navbar-start">
+                <a class="navbar-item" href="/about">About</a>
+            </div>
+            <div class="menu">
+                <div class="menu-header">
+                    <h2 class="menu-header-title">Theme</h2>
+                    <div class="theme-switcher">
+                        <input type="radio" id="light-theme" name="themes" checked/>
+                        <label for="light-theme">
+                            <span>
+                                <i data-feather="sun"></i>Light
+                            </span>
+                        </label>
+                        <input type="radio" id="dark-theme" name="themes" checked/>
+                        <label for="dark-theme">
+                            <span>
+                                <i data-feather="moon"></i>Dark
+                            </span>
+                        </label>
+                        <input type="radio" id="black-theme" name="themes" checked/>
+                        <label for="black-theme">
+                            <span>
+                                <i data-feather="star"></i>Black
+                            </span>
+                        </label>
+                        <span class="slider"></span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item" href="/about">About</a>
-          </div>
-          <div class="navbar-end">
-            {% if user.is_authenticated %}
-            <span class="navbar-item">Welcome: {{ user.username }}</span>
-            <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
-            {% else %}
-            <a class="navbar-item" href="{% url 'login' %}">Log In</a>
-            <a class="navbar-item" href="{% url 'signup' %}">Sign Up</a>
-            {% endif %}
+        <div class="navbar-menu navbar-end">
             <a class="navbar-item" href="/listings">Book a Location</a>
-          </div>
         </div>
-      </nav>
-      
+        {% if user.is_authenticated %}
+        <div class="navbar-menu navbar-end">
+            <span class="navbar-item">Welcome: {{user.username}}</span>
+            <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
+        </div>
+    {% else %}
+        <div class="navbar-menu navbar-end">
+           <a class="navbar-item" href="{% url 'login' %}">Log In</a>
+            <!--   here is our new link      -->
+           <a class="navbar-item" href="{% url 'signup' %}">Sign Up</a>
+        </div>
+    {% endif %}
+        </nav>
+        <div class="container">
+
+            {% block content %}{% endblock %}
 
         </div>
       </div>
