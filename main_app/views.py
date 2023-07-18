@@ -61,7 +61,7 @@ class ListingDetail(DetailView):
 class ListingUpdate(UpdateView):
     model=Listing
     fields =['name', 'img', 'description', 'price']
-    template_name = "lisiting_update.html"
+    template_name = "listing_update.html"
 
     def get_success_url(self):
         return reverse('listing_deatil', kwargs={'pk': self.object.pk})
