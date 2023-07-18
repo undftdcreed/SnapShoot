@@ -11,6 +11,8 @@ from django.views.generic import DetailView
 from django.urls import reverse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from .models import Booking
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 # Create your views here.
@@ -89,3 +91,17 @@ class Signup(TemplateView):
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
+        
+
+class BookingCreate(LoginRequiredMixin, CreateView):
+    model = Booking
+    fields = ['start_datetime', 'end_datetime']
+    template_name = 'booking_create.html'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.listing = Listing.objects.get(pk=self.kwargs['listing_pk'])
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('booking_detail', kwargs={'pk': self.object.pk})
