@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Booking Details</h1>
+  <div>
+    <p><strong>Booking ID:</strong> {{ booking.id }}</p>
+    <p><strong>User:</strong> {{ booking.user }}</p>
+    <p><strong>Listing:</strong> {{ booking.listing }}</p>
+    <p><strong>Start Date and Time:</strong> {{ booking.start_datetime }}</p>
+    <p><strong>End Date and Time:</strong> {{ booking.end_datetime }}</p>
+  </div>
+{% endblock %}

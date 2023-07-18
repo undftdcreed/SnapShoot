@@ -2,16 +2,15 @@ from typing import Any, Dict
 from django.db import models
 from django.contrib.auth.models import User
 from django.forms.models import BaseModelForm
+from .models import Booking, Listing
 from django.shortcuts import render, redirect
 from django.views.generic.base import TemplateView
 from django.http import HttpResponse
-from .models import Listing
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.urls import reverse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from .models import Booking
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -105,3 +104,8 @@ class BookingCreate(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse('booking_detail', kwargs={'pk': self.object.pk})
+
+class BookingDetail(DetailView):
+    model = Booking
+    template_name = 'booking_detail.html'
+    context_object_name = 'booking'

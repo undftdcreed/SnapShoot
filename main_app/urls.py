@@ -11,4 +11,6 @@ urlpatterns = [
     path('listings/<int:pk>/delete', views.ListingDelete.as_view(), name="listing_delete"),
     path('accounts/signup/', views.Signup.as_view(), name="signup"),
     path('listings/<int:listing_pk>/booking/', views.BookingCreate.as_view(), name='booking_create'),
+    path('bookings/<int:pk>/', views.BookingDetail.as_view(), name='booking_detail'),
+
 ]
