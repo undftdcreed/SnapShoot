@@ -331,3 +331,7 @@ form input[type="submit"]:hover {
   color: #008489;
   margin-top: 5px;
 }
+
+.description {
+  text-align: center;
+}
