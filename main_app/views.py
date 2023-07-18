@@ -51,7 +51,7 @@ class ListingCreate(CreateView):
         return super(ListingCreate, self).form_valid(form)
 
     def get_success_url(self):
-        return reverse('listing_deatil', kwargs={'pk': self.object.pk})
+        return reverse('listing_detail', kwargs={'pk': self.object.pk})
 
 
 class ListingDetail(DetailView):
