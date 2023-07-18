@@ -386,3 +386,133 @@ form input[type="submit"]:hover {
   background-color: #D32F2F;
 }
 
+/* Update navbar styles */
+.navbar {
+  background-color: #ffffff;
+  color: #222222;
+  font-family: "Airbnb Cereal App Book", Arial, sans-serif;
+}
+
+.navbar-brand a {
+  color: #222222;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-item {
+  margin-right: 10px;
+  color: #222222;
+}
+
+.navbar-item:hover {
+  color: #ff385c;
+}
+
+.navbar-end .navbar-item {
+  margin-left: 10px;
+}
+
+/* Update container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Update content styles */
+.content {
+  margin-top: 20px;
+}
+
+/* Update button styles */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff385c;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #cc003d;
+}
+
+/* Update footer styles */
+footer {
+  background-color: #f7f7f7;
+  padding: 20px;
+  text-align: center;
+  color: #888888;
+  font-size: 14px;
+}
+
+/* Add Airbnb logo styles */
+.navbar-brand img {
+  height: 40px;
+}
+
+/* Add custom theme switcher styles */
+.menu-header-title {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switcher input[type="radio"] {
+  display: none;
+}
+
+.theme-switcher label {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.theme-switcher label span {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.theme-switcher .slider {
+  width: 50px;
+  height: 24px;
+  background-color: #ccc;
+  border-radius: 12px;
+  position: relative;
+}
+
+.theme-switcher .slider:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease;
+}
+
+#light-theme:checked ~ .slider:before {
+  transform: translateX(0);
+}
+
+#dark-theme:checked ~ .slider:before {
+  transform: translateX(26px);
+}
+
+#black-theme:checked ~ .slider:before {
+  transform: translateX(48px);
+}
+
+/* Update other styles as needed */
