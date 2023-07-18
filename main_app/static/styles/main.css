@@ -1,21 +1,29 @@
-/* Reset some default styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Define CSS variables for different themes */
+:root {
+  --background-color: #ffffff;
+  --text-color: #222222;
 }
 
+/* Dark Theme */
+.dark-theme {
+  --background-color: #333333;
+  --text-color: #ffffff;
+}
+
+/* Black Theme */
+.black-theme {
+  --background-color: #000000;
+  --text-color: #ffffff;
+}
+
+/* Apply the theme variables to the elements */
 body {
-  font-family: Arial, sans-serif;
-  color: #222222;
-  background-color: #f8f8f8;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px;
-}
+
+
 
 h1,
 h2,
@@ -23,11 +31,20 @@ h3 {
   color: #222222;
 }
 
+.container {
+  padding: 40px;
+  padding-right: 0;
+}
+
+.title {
+  color: #222222;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-content: center;
   gap: 30px;
-  justify-items: center;
 }
 
 .gallery .card {
@@ -40,6 +57,11 @@ h3 {
 .gallery .card:hover {
   transform: translateY(-5px);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  font-size: 14px;
+  color: #777777;
 }
 
 .detail__img {
@@ -82,6 +104,16 @@ img {
   margin-top: 40px;
 }
 
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
 header {
   background-color: #f7f7f7;
   padding: 20px;
@@ -97,6 +129,7 @@ nav {
   font-size: 24px;
   font-weight: bold;
 }
+
 
 .hero {
   text-align: center;
@@ -236,6 +269,12 @@ footer {
   background-color: #f2f2f2;
 }
 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .about h1 {
   font-size: 36px;
   margin-bottom: 20px;
@@ -246,6 +285,7 @@ footer {
   color: #555;
   margin-bottom: 20px;
 }
+
 
 form {
   background-color: #fff;
