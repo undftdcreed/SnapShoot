@@ -22,9 +22,6 @@ body {
   color: var(--text-color);
 }
 
-
-
-
 h1,
 h2,
 h3 {
@@ -104,16 +101,6 @@ img {
   margin-top: 40px;
 }
 
-/* Reset some default styles */
-body, h1, h2, h3, p, ul, li {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-}
-
 header {
   background-color: #f7f7f7;
   padding: 20px;
@@ -129,7 +116,6 @@ nav {
   font-size: 24px;
   font-weight: bold;
 }
-
 
 .hero {
   text-align: center;
@@ -188,16 +174,6 @@ footer {
   text-align: center;
 }
 
-.detail__img {
-  margin-top: 50px;
-  text-align: center;
-}
-
-.detail__img img {
-  max-width: 500px;
-  height: auto;
-}
-
 .icon-text {
   display: flex;
   align-items: center;
@@ -211,24 +187,22 @@ footer {
   margin-right: 5px;
 }
 
-.detail__about {
-  margin-top: 30px;
-}
-
-.detail__about h4 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.detail__about p {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #555;
+.description {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .buttons {
   display: flex;
-  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.buttons a {
+  margin-bottom: 10px;
+}
+
+.detail__about {
+  margin-top: 40px;
 }
 
 .buttons a {
@@ -268,12 +242,6 @@ footer {
   background-color: #f2f2f2;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
 .about h1 {
   font-size: 36px;
   margin-bottom: 20px;
@@ -284,7 +252,6 @@ footer {
   color: #555;
   margin-bottom: 20px;
 }
-
 
 form {
   background-color: #fff;
@@ -331,33 +298,91 @@ form input[type="submit"]:hover {
   margin-top: 5px;
 }
 
-p.description {
-  text-align: center;
+.footer {
+  color: #ccc;
 }
 
-.detail__container {
-  margin-top: 20px;
-}
-
-.buttons {
+.card {
   display: flex;
-  margin-bottom: 20px;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
 }
 
-.buttons a {
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card__img img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+}
+
+.card__content {
+  padding: 20px;
+}
+
+.card__title {
+  font-size: 24px;
   margin-bottom: 10px;
 }
 
-.detail__about {
-  margin-top: 40px;
+.card__description {
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
-.description {
-  text-align: center;
-  margin-bottom: 20px;
+.card__price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.footer{
-  color: #ccc;
+.card__verified {
+  display: flex;
+  align-items: center;
+  color: #1E88E5;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card__buttons {
+  display: flex;
+}
+
+.card__button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.card__button .icon {
+  margin-left: 5px;
+}
+
+.card__button.is-info {
+  background-color: #1E88E5;
+}
+
+.card__button.is-info:hover {
+  background-color: #0F7AE5;
+}
+
+.card__button.is-danger {
+  background-color: #E53935;
+}
+
+.card__button.is-danger:hover {
+  background-color: #D32F2F;
 }
 
