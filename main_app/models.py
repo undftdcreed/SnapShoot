@@ -20,11 +20,10 @@ class Listing(models.Model):
 
 class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
     start_datetime = models.DateTimeField()
     end_datetime = models.DateTimeField()
     is_confirmed = models.BooleanField(default=False)
 
-    # Additional fields specific to your booking requirements
-
     def __str__(self):
-        return f"{self.user.username}'s Booking for {self.service.name}"
+        return f"Booking for {self.listing.name} by {self.user.username}"
