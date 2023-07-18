@@ -34,4 +34,5 @@
             
             <p class="description">{{listing.description}}</p>
             <p class="price">{{listing.price}}</p>
+            <a href="{% url 'booking_create' listing.pk %}">Book Now</a>
             {% endblock %}
