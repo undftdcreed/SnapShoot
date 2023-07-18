@@ -154,5 +154,5 @@ if not DEBUG:
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'main_app/static')]
 
 
-LOGIN_REDIRECT_URL = '/artists/'
+LOGIN_REDIRECT_URL = '/listings/'
 LOGOUT_REDIRECT_URL = '/'
