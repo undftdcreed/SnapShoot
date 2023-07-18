@@ -228,7 +228,6 @@ footer {
 
 .buttons {
   display: flex;
-  justify-content: center;
   margin-top: 30px;
 }
 
@@ -342,7 +341,6 @@ p.description {
 
 .buttons {
   display: flex;
-  flex-direction: column;
   margin-bottom: 20px;
 }
 
