@@ -6,6 +6,6 @@ pip install dj_database_url
 pip install whitenoise
 pip install psycopg2-binary
 pip install gunicorn
-
+python manage.py makemigrations
 python manage.py collectstatic --no-input
 python manage.py migrate
