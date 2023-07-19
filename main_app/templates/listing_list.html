@@ -15,7 +15,9 @@
         <input class="button is-success" type="submit" value="Search" />
       </div>
     </div>
+    {% if user.is_authenticated %}
 <a class="button is-dark" href="{% url 'listing_create' %}">Add Listing</a>
+{% endif %}
 <div class="gallery">
   {% for listing in listings %}
   <a href="{% url 'listing_detail' listing.pk %}">
