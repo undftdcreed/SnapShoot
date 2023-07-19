@@ -15,6 +15,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.edit import UpdateView
+from django.views.generic.list import ListView
 # Create your views here.
 
 class Home(TemplateView):
@@ -101,7 +102,7 @@ class BookingList(LoginRequiredMixin, ListView):
         # Only return bookings that belong to the currently logged-in user
         return Booking.objects.filter(user=self.request.user)
     
-    
+
 class BookingCreate(LoginRequiredMixin, CreateView):
     model = Booking
     fields = ['start_datetime', 'end_datetime']
