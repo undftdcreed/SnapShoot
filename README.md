@@ -23,8 +23,6 @@ Render
 HTML
 CSS
 
-## User Experiences
-(Explain the user experiences and features of your project, e.g., what users can do on the website, how it benefits them, and any unique or standout features.)
 
 ## Screenshots
 
