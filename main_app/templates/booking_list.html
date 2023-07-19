@@ -2,17 +2,19 @@
 
 {% block content %}
     <h1>My Bookings</h1>
-    {% if bookings %}
-        <ul>
+    <div class="booking-container">
+        {% if bookings %}
             {% for booking in bookings %}
-                <li>
+                <div class="booking-card" id="booking-card-{{ booking.id }}">
                     <a href="{% url 'booking_detail' pk=booking.pk %}">
-                        Booking ID: {{ booking.id }} - Listing: {{ booking.listing.name }}
+                        <p class="booking-info">Booking ID: {{ booking.id }}</p>
+                        <p class="booking-info">Listing: {{ booking.listing.name }}</p>
                     </a>
-                </li>
+                </div>
             {% endfor %}
-        </ul>
-    {% else %}
-        <p>No bookings found.</p>
-    {% endif %}
+        {% else %}
+            <p>No bookings found.</p>
+        {% endif %}
+    </div>
 {% endblock %}
+

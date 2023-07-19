@@ -516,3 +516,39 @@ footer {
 }
 
 /* Update other styles as needed */
+
+/* styles.css */
+.booking-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.booking-card {
+  width: 300px;
+  margin: 10px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.booking-card:hover {
+  transform: translateY(-5px);
+}
+
+.booking-info {
+  margin: 0;
+  padding: 0;
+}
+
+/* Unique hover card styles for each booking card */
+#booking-card-1 .hover-card {
+  /* Add your hover card styles for booking with ID 1 */
+}
+
+#booking-card-2 .hover-card {
+  /* Add your hover card styles for booking with ID 2 */
+}
+
+/* Add similar styles for other booking cards with unique IDs */
