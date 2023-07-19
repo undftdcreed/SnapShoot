@@ -1,13 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>Book {{ listing.name }}</h1>
-    <form method="POST" action="{% url 'booking_create' listing_pk=listing.pk %}">
+    <form method="POST" action="{% url 'booking_create' listing_pk=listing_pk %}">
         {% csrf_token %}
-        {{ form.start_date }}
-        {{ form.start_time }}
-        {{ form.end_date }}
-        {{ form.end_time }}
+        {{ form.as_p }}
         <button type="submit">Book Now</button>
     </form>
 {% endblock %}
-

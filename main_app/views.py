@@ -16,7 +16,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.edit import UpdateView
 from django.views.generic.list import ListView
-from django import forms
+
 # Create your views here.
 
 class Home(TemplateView):
@@ -26,7 +26,7 @@ class Home(TemplateView):
 class About(TemplateView):
     template_name = "about.html"
 
-@method_decorator(login_required, name='dispatch')
+
 class ListingList(TemplateView):
     template_name = "listing_list.html"
 
@@ -94,6 +94,7 @@ class Signup(TemplateView):
             context = {"form": form}
             return render(request, "registration/signup.html", context)
         
+@method_decorator(login_required, name='dispatch')       
 class BookingList(LoginRequiredMixin, ListView):
     model = Booking
     template_name = 'booking_list.html'
@@ -103,24 +104,15 @@ class BookingList(LoginRequiredMixin, ListView):
         # Only return bookings that belong to the currently logged-in user
         return Booking.objects.filter(user=self.request.user)
     
-class BookingCreateForm(forms.ModelForm):
-    class Meta:
-        model = Booking
-        fields = ['start_date', 'start_time', 'end_date', 'end_time']
-
-    start_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
-    start_time = forms.TimeField(widget=forms.TimeInput(attrs={'type': 'time'}))
-    end_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
-    end_time = forms.TimeField(widget=forms.TimeInput(attrs={'type': 'time'}))
 
 class BookingCreate(LoginRequiredMixin, CreateView):
     model = Booking
-    form_class = BookingCreateForm
+    fields = ['start_datetime', 'end_datetime']
     template_name = 'booking_create.html'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        form.instance.listing = Listing.objects.get(pk=self.kwargs['listing_pk'])
+        form.instance.listing = get_object_or_404(Listing, pk=self.kwargs['listing_pk'])
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -130,9 +122,6 @@ class BookingCreate(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse('booking_detail', kwargs={'pk': self.object.pk})
-    
-
-
 
 class BookingDetail(DetailView):
     model = Booking
