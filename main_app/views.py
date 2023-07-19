@@ -29,31 +29,25 @@ class About(TemplateView):
 
 
 class ListingList(TemplateView):
-    template_name_authenticated = "listing_list.html"
-    template_name_unauthenticated = "listing_list_unauthenticated.html"
-
-    def get_template_names(self):
-        if self.request.user.is_authenticated:
-            return [self.template_name_authenticated]
-        else:
-            return [self.template_name_unauthenticated]
+    template_name = "listing_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("title")
-        if name != None:
-            context["listings"] = Listing.objects.filter(name__icontains=name, user=self.request.user)
-            context["header"] = f"searching for {name}"
+        if name:
+            context["listings"] = Listing.objects.filter(name__icontains=name)
+            context["header"] = f"Searching for {name}"
         else:
-            context["listings"] = Listing.objects.filter(user=self.request.user)
+            context["listings"] = Listing.objects.all()
             context["header"] = "Hot Locations"
-        return context
 
-    def dispatch(self, request, *args, **kwargs):
-        if not self.request.user.is_authenticated and 'listing_pk' in kwargs:
-            # Redirect non-authenticated users to login if they try to access the BookingCreate view
-            return redirect(reverse_lazy('signup'))
-        return super().dispatch(request, *args, **kwargs)
+        # Check if the user is authenticated
+        if self.request.user.is_authenticated:
+            context["user_authenticated"] = True
+        else:
+            context["user_authenticated"] = False
+
+        return context
     
 
     
