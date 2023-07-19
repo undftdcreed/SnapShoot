@@ -2,6 +2,10 @@
 
 SnapShoot is a web application that allows users to find unique accommodations for film productions in the Las Vegas Valley. Users can browse listings, book locations, and manage their bookings. This project is built using Django, a Python web framework.
 
+## Live Site on Render 
+https://snapshoot-fobr.onrender.com/
+
+sometimes the server will shut itself off so let me know if i need to restart the server
 ## Features
 
 - Browse listings: Users can view a list of available locations for film productions.
