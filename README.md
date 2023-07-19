@@ -25,6 +25,14 @@ CSS
 
 
 ## Screenshots
+<img width="1425" alt="Screenshot 2023-07-19 at 1 39 26 PM" src="https://github.com/undftdcreed/SnapShoot/assets/122516652/fbea73f7-3748-4a9b-af09-25448b8709f6">
+<img width="1423" alt="Screenshot 2023-07-19 at 1 39 38 PM" src="https://github.com/undftdcreed/SnapShoot/assets/122516652/2888434f-7da6-4e9d-a4f8-cb1542f64ead">
+
+<img width="1421" alt="Screenshot 2023-07-19 at 1 39 57 PM" src="https://github.com/undftdcreed/SnapShoot/assets/122516652/235ac410-7b5f-4480-84ac-143336fc32a3">
+<img width="1429" alt="Screenshot 2023-07-19 at 1 40 08 PM" src="https://github.com/undftdcreed/SnapShoot/assets/122516652/f21b4b94-bbfb-493f-a734-1602cc2c43ba">
+<img width="1423" alt="Screenshot 2023-07-19 at 1 40 21 PM" src="https://github.com/undftdcreed/SnapShoot/assets/122516652/1d4361b3-20d6-49e4-b706-e747fc371514">
+
+
 
 ## Installation
 
