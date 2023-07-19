@@ -14,6 +14,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.views.generic.edit import UpdateView
 # Create your views here.
 
 class Home(TemplateView):
@@ -109,3 +110,12 @@ class BookingDetail(DetailView):
     model = Booking
     template_name = 'booking_detail.html'
     context_object_name = 'booking'
+
+
+class BookingUpdate(LoginRequiredMixin, UpdateView):
+    model = Booking
+    fields = ['start_datetime', 'end_datetime']
+    template_name = 'booking_update.html'  # Create a new template for updating bookings
+
+    def get_success_url(self):
+        return reverse('booking_detail', kwargs={'pk': self.object.pk})
