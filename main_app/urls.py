@@ -5,7 +5,6 @@ urlpatterns = [
     path('', views.Home.as_view(), name="home"),
     path('about/', views.About.as_view(), name="about"),
     path('listings/', views.ListingList.as_view(), name="listing_list"),
-    path('listings/unauthenticated/', views.ListingListUnauthenticated.as_view(), name="listing_list_unauthenticated"),
     path('accounts/signup/', views.Signup.as_view(), name="signup"),
     path('listings/new/', views.ListingCreate.as_view(), name="listing_create"),
     path('listings/<int:pk>/', views.ListingDetail.as_view(), name="listing_detail"),
