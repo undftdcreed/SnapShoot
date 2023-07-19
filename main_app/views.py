@@ -16,6 +16,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.edit import UpdateView
 from django.views.generic.list import ListView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -28,7 +29,14 @@ class About(TemplateView):
 
 
 class ListingList(TemplateView):
-    template_name = "listing_list.html"
+    template_name_authenticated = "listing_list.html"
+    template_name_unauthenticated = "listing_list_unauthenticated.html"
+
+    def get_template_names(self):
+        if self.request.user.is_authenticated:
+            return [self.template_name_authenticated]
+        else:
+            return [self.template_name_unauthenticated]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -40,6 +48,12 @@ class ListingList(TemplateView):
             context["listings"] = Listing.objects.filter(user=self.request.user)
             context["header"] = "Hot Locations"
         return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if not self.request.user.is_authenticated and 'listing_pk' in kwargs:
+            # Redirect non-authenticated users to login if they try to access the BookingCreate view
+            return redirect(reverse_lazy('signup'))
+        return super().dispatch(request, *args, **kwargs)
     
 
     

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Hot Locations</h1>
+    {% if listings %}
+        <ul>
+            {% for listing in listings %}
+                <li>
+                    <div class="listing-card">
+                        <h3>{{ listing.name }}</h3>
+                        <p>{{ listing.description }}</p>
+                        <p>Price: {{ listing.price }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No listings found.</p>
+    {% endif %}
+{% endblock %}

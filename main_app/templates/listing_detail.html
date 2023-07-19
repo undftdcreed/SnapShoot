@@ -16,6 +16,7 @@
       <span>Verified</span>
     </div>
     {% endif %}
+    {% if user.is_authenticated %}
     <div class="card__buttons">
       <a href="{% url 'listing_update' listing.pk %}" class="card__button is-info"> 
         <span class="icon">
@@ -27,6 +28,7 @@
           <i class="fas fa-trash-alt"></i>
         </span>
       </a>
+      {% endif %}
       <a href="{% url 'booking_create' listing_pk=listing.pk %}" class="card__button is-info">Book Now
         <span class="icon">
           <i class="fas fa-edit"></i>

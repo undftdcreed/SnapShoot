@@ -10,6 +10,20 @@ SnapShoot is a web application that allows users to find unique accommodations f
 - User authentication: Users can sign up, log in, and log out of their accounts.
 - Listing management: Authorized users can create, update, and delete listings.
 
+## Technologies Used
+Django
+Python
+Bootstrap
+Trello
+Render
+HTML
+CSS
+
+## User Experiences
+(Explain the user experiences and features of your project, e.g., what users can do on the website, how it benefits them, and any unique or standout features.)
+
+## Screenshots
+
 ## Installation
 
 1. Clone the repository: `git clone https://github.com/your-username/snapshoot.git`
