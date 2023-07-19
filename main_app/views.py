@@ -92,7 +92,16 @@ class Signup(TemplateView):
             context = {"form": form}
             return render(request, "registration/signup.html", context)
         
+class BookingList(LoginRequiredMixin, ListView):
+    model = Booking
+    template_name = 'booking_list.html'
+    context_object_name = 'bookings'
 
+    def get_queryset(self):
+        # Only return bookings that belong to the currently logged-in user
+        return Booking.objects.filter(user=self.request.user)
+    
+    
 class BookingCreate(LoginRequiredMixin, CreateView):
     model = Booking
     fields = ['start_datetime', 'end_datetime']
