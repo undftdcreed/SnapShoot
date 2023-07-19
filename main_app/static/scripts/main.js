@@ -16,4 +16,19 @@
       }
     });
   });
+
+  //theme change
+  document.addEventListener('DOMContentLoaded', function () {
+    const themeSwitcher = document.querySelector('.theme-switcher');
+  
+    if (themeSwitcher) {
+      const body = document.querySelector('body');
+  
+      themeSwitcher.addEventListener('change', function () {
+        if (this.checked) {
+          body.className = this.id + '-theme';
+        }
+      });
+    }
+  });
   
