@@ -65,7 +65,7 @@ class ListingUpdate(UpdateView):
     template_name = "listing_update.html"
 
     def get_success_url(self):
-        return reverse('listing_deatil', kwargs={'pk': self.object.pk})
+        return reverse('listing_detail', kwargs={'pk': self.object.pk})
     
 class ListingDelete(DeleteView):
     model = Listing
