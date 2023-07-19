@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.forms.models import BaseModelForm
 from .models import Booking, Listing
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.base import TemplateView
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -100,8 +100,13 @@ class BookingCreate(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        form.instance.listing = Listing.objects.get(pk=self.kwargs['listing_pk'])
+        form.instance.listing = get_object_or_404(Listing, pk=self.kwargs['listing_pk'])
         return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['listing_pk'] = self.kwargs['listing_pk']
+        return context
 
     def get_success_url(self):
         return reverse('booking_detail', kwargs={'pk': self.object.pk})
